@@ -39,8 +39,6 @@ public class SecurityConfiguration {
                     authorize.requestMatchers("/register", "/", "/images/**", "/back-end/**", "/front-end/**").permitAll()
                             .requestMatchers("/admin/**")
                             .hasRole("ADMIN")
-                            .requestMatchers("/customer/**")
-                            .hasRole("USER")
                             .anyRequest().authenticated()
                 ).csrf(csrf -> csrf.disable())
                 .formLogin(
