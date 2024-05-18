@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/back-end/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Manage to Rokomari Admin</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">Category</h4>
+            <ul class="db-breadcrumb-list">
+                <li><a href="/admin/dashboard"><i class="fa fa-home"></i>Home</a></li>
+                <li>Category</li>
+            </ul>
+        </div>
+        <div class="row">
+            <!-- Your Profile Views Chart -->
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-between gap-3 gap-sm-0">
+                            <h4>Category Table</h4>
+                            <a href="/admin/category/add" class="btn-dark btn-sm py-2 px-3">Add New</a>
+                        </div>
+                    </div>
+                    <div class="widget-inner">
+                        <!--Create Success Message -->
+                        <div th:if="${param.create_success}">
+                            <div class="alert alert-success">
+                                Category saved successfully!
+                            </div>
+                        </div>
+
+                        <!--Update Success Message -->
+                        <div th:if="${param.update_success}">
+                            <div class="alert alert-success">
+                                Category updated successfully!
+                            </div>
+                        </div>
+
+                        <!--Delete Success Message -->
+                        <div th:if="${param.delete_success}">
+                            <div class="alert alert-success">
+                                Category deleted successfully!
+                            </div>
+                        </div>
+
+                        <table class="table table-striped table-responsive-sm">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">
+                                    <a class="text-decoration-none" th:href="@{'/admin/category/manage/page/' + ${currentPage} + '?sortField=name&sortDirection=' + ${reverseSortDir}}">
+                                        Name
+                                    </a>
+                                </th>
+                                <th scope="col">
+                                    <a class="text-decoration-none" th:href="@{'/admin/category/manage/page/' + ${currentPage} + '?sortField=createdAt&sortDirection=' + ${reverseSortDir}}">
+                                        Date
+                                    </a>
+                                </th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="category : ${categories}">
+                                <th scope="row" th:text="${category.id}"></th>
+                                <td><img th:src="@{'/images/category/' + ${category.image}}" th:alt="${category.name}"
+                                         width="60"/></td>
+                                <th scope="row" th:text="${category.name}"></th>
+                                <th scope="row" th:text="${category.createdAt}"></th>
+                                <td class="text-nowrap">
+                                    <a th:href="@{/admin/category/edit(id=${category.id})}"
+                                       class="btn-primary btn-sm px-2 py-1">Edit</a>
+                                    <a th:href="@{/admin/category/delete(id=${category.id})}"
+                                       onclick="return confirm('Are you sure? you want to delete this category!')"
+                                       class="btn-danger btn-sm px-2 py-1">Delete</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div th:if="${totalPages > 1}">
+                            <div class="row col-sm-10">
+                                <div class="col-sm-6 me-2">
+                                    Total Rows: [[${totalItems}]]
+                                </div>
+                                <div class="col-sm-1">
+                                    <a class="text-decoration-none bg-dark text-white fs-6 rounded-2 p-2"
+                                       th:if="${totalPages < currentPage + 1}"
+                                       th:href="@{'/admin/category/manage/page/' + ${totalPages - 1} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}">
+                                        Prev
+                                    </a>
+                                    <span th:unless="${totalPages < currentPage + 1}">
+                                        Prev
+                                    </span>
+                                </div>
+                                <div class="col-sm-1 d-flex gap-3">
+                                    <span th:each="i : ${#numbers.sequence(1, totalPages)}">
+                                        <a class="text-decoration-none" th:if="${currentPage != i}"
+                                           th:href="@{'/admin/category/manage/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}">
+                                            [[${i}]]
+                                        </a>
+                                        <span class="text-decoration-none bg-dark text-white rounded-2 p-2"
+                                              th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+                                    </span>
+                                </div>
+                                <div class="col-sm-1">
+                                    <a class="text-decoration-none bg-dark text-white rounded-2 p-2"
+                                       th:if="${currentPage < totalPages}"
+                                       th:href="@{'/admin/category/manage/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}">
+                                        Next
+                                    </a>
+                                    <span th:unless="${currentPage < totalPages}">
+                                        Next
+                                    </span>
+                                </div>
+                                <div class="col-sm-1">
+                                    <a class="text-decoration-none bg-dark text-white rounded-2 p-2"
+                                       th:if="${currentPage < totalPages}"
+                                       th:href="@{'/admin/category/manage/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}">
+                                        Last
+                                    </a>
+                                    <span th:unless="${currentPage < totalPages}">
+                                        Last
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

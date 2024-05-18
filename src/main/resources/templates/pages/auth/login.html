@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/front-end/layout">
+  <head>
+      <meta charset="UTF-8">
+      <title>Login to Rokomari - Best Online Book Shop in Bangladesh</title>
+  </head>
+  <body>
+      <div layout:fragment="content">
+          <!-- login section start -->
+          <section class="login py-5 py-lg-0 px-1">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 offset-md-3 px-4 py-4 rounded-3 shadow-lg">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <h3 class="fs-4 text-uppercase">Login</h3>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center mb-4">
+                    <div class="divider"></div>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
+                    <button type="button" class="btn btn-primary btn-lg px-4 py-2"><i class="bi bi-facebook me-2"></i><span class="small"> Facebook</span></button>
+                    <button type="button" class="btn btn-danger btn-lg px-4 py-2"><i class="bi bi-google me-2"></i><span class="small"> Google</span></button>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center mb-4">
+                    <h2 class="small fw-bold">OR</h2>
+                  </div>
+
+                  <!-- Error Message -->
+                  <div th:if="${param.error}" class="alert-message">
+                    <div class="alert alert-danger">
+                      Invalid email or password!
+                    </div>
+                  </div>
+
+                  <!-- Logout Message -->
+                  <div th:if="${param.logout}" class="alert-message">
+                    <div class="alert alert-info">
+                      You have been logged out!
+                    </div>
+                  </div>
+
+                  <form class="login-form mb-4" th:action="@{/login}" method="post">
+                    <div class="mb-3">
+                      <label for="username">Email Address</label>
+                      <input type="text" class="form-control" id="username" name="username" />
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control mb-1" id="password" name="password" />
+                      <a href="#" class="small text-primary">Forgot Password?</a>
+                    </div>
+
+                    <div class="d-grid d-grid-block">
+                      <button type="submit" class="btn btn-primary px-4 py-2">Login</button>
+                    </div>
+                  </form>
+
+                  <div class="d-flex align-items-center justify-content-center">
+                    <h3 class="small text-danger">You have don't account? <a href="/register" class="text-success">Please register!</a></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- login section end -->
+      </div>
+  </body>
+</html>

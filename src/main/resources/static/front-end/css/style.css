@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #d9d9d9;
+  overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* header css start */
+
+header .logo img {
+    width: 8rem;
+    height: 3rem;
+}
+
+header .search input {
+    width: 21rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(112, 111, 111) !important;
+    border: 1px solid #2196f3;
+    border-radius: 3rem;
+    background-image: url('../images/search.svg');
+    background-size: 1.3rem;
+    background-repeat: no-repeat;
+    background-position: 1rem 0.5rem;
+    padding: 0.8rem 1.3rem 1rem 3rem;
+}
+
+header .search input:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+header a {
+    font-size: 1rem;
+    color: #464646;
+    font-weight: 500;
+}
+
+header .btn-div .sign-in-btn {
+    transition: color 0.2s linear;
+}
+
+header .btn-div .sign-in-btn:hover {
+    background: #2196f3 !important;
+    border-radius: 0.5rem;
+    color: #fff !important;
+}
+
+header a i {
+    font-size: 1.5rem;
+    color: #464646;
+    padding-right: 0.4rem;
+    font-weight: 600;
+}
+
+header .divider {
+    width: 1px;
+    height: 1.2rem;
+    background: #9c9c9c;
+}
+
+header a .cart-badge:after{
+    content:attr(value);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+    background: #2196f3;
+    border-radius: 50%;
+    padding: 0.2rem 0.6rem;
+    position: relative;
+    left:-0.5rem;
+    top:-0.8rem;
+}
+
+header .logo-div {
+    display: none;
+}
+
+header .btn-div {
+    display: none;
+}
+
+/* header css end */
+
+/* navbar css start */
+.navbar {
+    box-shadow: rgba(150, 153, 156, 0.2) 0px 8px 24px;
+}
+
+.navbar .navbar-brand img {
+    width: 5rem;
+    height: 2rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1rem;
+    margin-right: 1rem;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.2s linear;
+}
+.navbar-nav .nav-item .nav-link.active,
+.navbar-nav .nav-item .nav-link:hover {
+    color: #0d6efd;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.dropdown-menu {
+    border: none !important;
+    box-shadow: rgba(150, 153, 156, 0.2) 0px 8px 24px;
+}
+.dropdown-menu .dropdown-item {
+    font-size: 1rem !important;
+}
+.dropdown-menu .dropdown-item:hover {
+    background: #0d6efd !important;
+    color: #fff;
+}
+/* navbar css end */
+
+/* login section css start */
+.login .divider {
+    width: 6rem;
+    height: 1px;
+    background: #000;
+}
+
+.login .alert-message {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.login .login-form {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.login .login-form input:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+/* login section css end */
+
+/* register section css start */
+.register .divider {
+    width: 8rem;
+    height: 1px;
+    background: #000;
+}
+
+.register .alert-message {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.register .register-form {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.register .register-form input:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+/* register section css end */
+
+/* footer css start */
+footer {
+    border-top: 1px solid #dfdfdf;
+}
+
+footer .footer-link a {
+    color: #464646;
+    transition: color 0.2s linear;
+}
+
+footer .footer-link a.active, footer .footer-link a:hover {
+    color: #0d6efd;
+    margin-left: 0.4rem;
+}
+
+footer .app-icon img {
+    width: 3rem;
+    height: 3rem;
+}
+
+footer .download-icon img {
+    width: 7rem;
+    height: 3rem;
+}
+/* footer css end */
+
+/* media query */
+@media (min-width: 390px) {
+    header .search input {
+        width: 21rem;
+        height: 2.5rem;
+    }
+
+    header .logo-div {
+        display: none;
+    }
+
+    header .btn-div {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) {
+    header .search input {
+        width: 28rem;
+        height: 2.5rem;
+    }
+
+    header .logo-div {
+        display: none;
+    }
+
+    header .btn-div {
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+    header .search input {
+        width: 33rem;
+        height: 2.5rem;
+    }
+
+    header .logo-div {
+        display: none;
+    }
+
+    header .btn-div {
+        display: none;
+    }
+}
+@media (min-width: 992px) {
+    header .search input {
+        width: 22rem;
+        height: 2.5rem;
+    }
+
+    header .logo-div {
+        display: block;
+    }
+
+    header .btn-div {
+        display: block;
+    }
+}
+@media (min-width: 1200px) {
+    header .search input {
+        width: 27rem;
+        height: 2.5rem;
+    }
+
+    header .logo-div {
+        display: block;
+    }
+
+    header .btn-div {
+        display: block;
+    }
+}
+/* media query */
