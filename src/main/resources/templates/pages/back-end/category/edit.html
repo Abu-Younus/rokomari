@@ -16,17 +16,18 @@
                     </ul>
                 </div>
                 <div class="row">
-                    <!-- Your Profile Views Chart -->
+                    <!-- Category Update -->
                     <div class="col-lg-12 m-b30">
                         <div class="widget-box">
                             <div class="wc-title">
                                 <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-between gap-3 gap-sm-0">
                                     <h4>Category Update</h4>
-                                    <a href="/admin/category/manage" class="btn-dark btn-sm py-2 px-3">Manage</a>
+                                    <a href="/admin/category" class="btn-dark btn-sm py-2 px-3">Manage</a>
                                 </div>
                             </div>
                             <div class="widget-inner">
-                                <form class="edit-profile m-b30" th:action="@{/edit}" method="post" enctype="multipart/form-data" th:object="${category}">
+                                <!-- Update Form Start -->
+                                <form class="edit-profile m-b30" method="post" enctype="multipart/form-data" th:object="${category}">
                                     <div class="row">
                                         <div class="form-group col-12">
                                             <img th:src="@{'/images/category/' + ${categoryEntity.image}}" th:alt="${category.name}" width="80" />
@@ -50,6 +51,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <!-- Update Form End -->
                             </div>
                         </div>
                     </div>

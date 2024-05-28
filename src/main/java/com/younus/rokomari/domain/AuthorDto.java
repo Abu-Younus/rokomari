@@ -10,11 +10,14 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryDto {
-
+public class AuthorDto {
     @NotEmpty(message = "The name is required!")
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100!")
+    @Size(min = 3, max = 100, message = "The details must be between 3 and 100")
     private String name;
+
+    @NotEmpty(message = "The details is required!")
+    @Size(min = 5, max = 1000, message = "The details must be between 5 and 1000")
+    private String details;
 
     private MultipartFile image;
 }

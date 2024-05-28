@@ -20,13 +20,13 @@ public class AdminCategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    //get all category
-    @GetMapping("/manage")
+    //get all category api
+    @GetMapping("")
     public String getAllCategory(Model model) {
-        return findPaginated(1, "name", "asc", model);
+        return findPaginated(1, "id", "desc", model);
     }
 
-    //category pagination & sorting
+    //category pagination & sorting api
     @GetMapping("/page/{pageNo}")
     public String findPaginated(
             @PathVariable(value = "pageNo") int pageNo,
@@ -41,7 +41,6 @@ public class AdminCategoryController {
         model.addAttribute("categories", categoryEntities);
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
-        model.addAttribute("totalItems", page.getTotalElements());
         model.addAttribute("sortField", sortField);
         model.addAttribute("sortDirection", sortDirection);
         model.addAttribute("reverseSortDir", sortDirection.equals("asc") ? "desc" : "asc");
@@ -49,7 +48,7 @@ public class AdminCategoryController {
         return "pages/back-end/category/manage";
     }
 
-    //add page & create category
+    //show create page & create category api
     @GetMapping("/add")
     public String showAddCategory(Model model) {
         CategoryDto categoryDto = new CategoryDto();
@@ -62,21 +61,21 @@ public class AdminCategoryController {
         return categoryService.createCategory(categoryDto, bindingResult);
     }
 
-    //edit page & update category
+    //show edit page & update category api
     @GetMapping("/edit")
-    public String showEditCategory(Model model, @RequestParam Long id) {
+    public String showEditCategory(Model model, @RequestParam() Long id) {
         return categoryService.showEditCategory(model, id);
     }
 
     @PostMapping("/edit")
     public String updateCategory(Model model,
-                             @RequestParam Long id,
+                             @RequestParam() Long id,
                              @Valid @ModelAttribute("category") CategoryDto categoryDto,
                              BindingResult bindingResult) {
         return categoryService.updateCategory(model, id, categoryDto, bindingResult);
     }
 
-    //delete category
+    //delete category api
     @GetMapping("/delete")
     public String deleteCategory(@RequestParam Long id) {
         return categoryService.deleteCategory(id);

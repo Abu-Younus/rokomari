@@ -5,26 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "categories")
-public class CategoryEntity {
-
+@Table(name = "sub_categories")
+public class SubCategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
     private String name;
     private String image;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval = true)
-    private List<SubCategoryEntity> subCategories = new ArrayList<>();
-
     private Date createdAt;
     private Date updatedAt;
 }

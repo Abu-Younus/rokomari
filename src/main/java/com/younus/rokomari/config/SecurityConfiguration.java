@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -36,16 +37,18 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) ->
-                    authorize.requestMatchers("/register", "/", "/images/**", "/back-end/**", "/front-end/**").permitAll()
+                    authorize.requestMatchers("/register", "/", "/public/**", "/front-end/**", "/back-end/**").permitAll()
                             .requestMatchers("/admin/**")
                             .hasRole("ADMIN")
+                            .requestMatchers("/customer/**")
+                            .hasRole("USER")
                             .anyRequest().authenticated()
                 ).csrf(csrf -> csrf.disable())
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/admin/dashboard")
+                                .successHandler(authenticationSuccessHandler())
                                 .permitAll()
                 ).logout(
                         logout -> logout
@@ -55,5 +58,17 @@ public class SecurityConfiguration {
                 );
 
         return http.build();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler authenticationSuccessHandler() {
+        return (request, response, authentication) -> {
+            if (authentication.getAuthorities().stream()
+                    .anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
+                response.sendRedirect("/admin/dashboard");
+            } else {
+                response.sendRedirect("/");
+            }
+        };
     }
 }

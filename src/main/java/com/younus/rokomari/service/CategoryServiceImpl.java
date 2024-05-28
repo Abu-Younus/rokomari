@@ -20,12 +20,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
     @Autowired
     private CategoryRepository categoryRepository;
 
+    //create category method
     @Override
     public String createCategory(CategoryDto categoryDto, BindingResult bindingResult) {
         if(categoryDto.getImage().isEmpty()) {
@@ -58,7 +60,7 @@ public class CategoryServiceImpl implements CategoryService{
 
         categoryRepository.save(categoryEntity);
 
-        return "redirect:/admin/category/manage?create_success";
+        return "redirect:/admin/category?create_success";
     }
 
     @Override
@@ -66,6 +68,13 @@ public class CategoryServiceImpl implements CategoryService{
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
         return categoryRepository.findAll(pageable);
+    }
+
+    //get all category method to subcategory
+    @Override
+    public List<CategoryEntity> allCategory() {
+        List<CategoryEntity> categories = categoryRepository.findAll();
+        return categories;
     }
 
     @Override
@@ -82,8 +91,9 @@ public class CategoryServiceImpl implements CategoryService{
         }
         catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
+            return "redirect:/admin/category";
         }
-        return "redirect:/admin/category/edit";
+        return "pages/back-end/category/edit";
     }
 
     @Override
@@ -93,7 +103,7 @@ public class CategoryServiceImpl implements CategoryService{
             model.addAttribute("categoryEntity", categoryEntity);
 
             if(bindingResult.hasErrors()) {
-                return "redirect:/admin/category/edit";
+                return "pages/back-end/category/edit";
             }
 
             if(!categoryDto.getImage().isEmpty()) {
@@ -127,7 +137,7 @@ public class CategoryServiceImpl implements CategoryService{
         catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
         }
-        return "redirect:/admin/category/manage?update_success";
+        return "redirect:/admin/category?update_success";
     }
 
     @Override
@@ -146,6 +156,6 @@ public class CategoryServiceImpl implements CategoryService{
 
         categoryRepository.delete(categoryEntity);
 
-        return "redirect:/admin/category/manage?delete_success";
+        return "redirect:/admin/category?delete_success";
     }
 }
