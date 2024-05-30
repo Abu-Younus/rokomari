@@ -14,7 +14,7 @@ import java.util.Date;
 @Table(name = "sub_categories")
 public class SubCategoryEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

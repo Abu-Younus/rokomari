@@ -33,6 +33,7 @@ public class SubCategoryServiceImpl implements SubCategoryService{
     @Autowired
     private CategoryRepository categoryRepository;
 
+    //pagination & sorting method
     @Override
     public Page<SubCategoryEntity> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
@@ -40,6 +41,7 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         return subCategoryRepository.findAll(pageable);
     }
 
+    //create sub category method
     @Override
     public String createSubCategory(SubCategoryDto subCategoryDto, BindingResult bindingResult) {
         if(subCategoryDto.getImage().isEmpty()) {
@@ -76,6 +78,7 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         return "redirect:/admin/sub-category?create_success";
     }
 
+    //show edit sub category page method
     @Override
     public String showEditSubCategory(Model model, Long id) {
         try {
@@ -96,6 +99,7 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         return "pages/back-end/sub-category/edit";
     }
 
+    //update sub category method
     @Override
     public String updateSubCategory(Model model, Long id, SubCategoryDto subCategoryDto, BindingResult bindingResult) {
         try {
@@ -141,6 +145,7 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         return "redirect:/admin/sub-category?update_success";
     }
 
+    //delete sub category method
     @Override
     public String deleteSubCategory(Long id) {
         SubCategoryEntity subCategoryEntity = subCategoryRepository.findById(id).get();

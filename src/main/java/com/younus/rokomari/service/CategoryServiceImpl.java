@@ -63,6 +63,7 @@ public class CategoryServiceImpl implements CategoryService{
         return "redirect:/admin/category?create_success";
     }
 
+    //pagination & sorting method
     @Override
     public Page<CategoryEntity> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
@@ -77,6 +78,7 @@ public class CategoryServiceImpl implements CategoryService{
         return categories;
     }
 
+    //show edit category page method
     @Override
     public String showEditCategory(Model model, Long id) {
         try {
@@ -96,6 +98,7 @@ public class CategoryServiceImpl implements CategoryService{
         return "pages/back-end/category/edit";
     }
 
+    //update category method
     @Override
     public String updateCategory(Model model, Long id, CategoryDto categoryDto, BindingResult bindingResult) {
         try {
@@ -140,6 +143,7 @@ public class CategoryServiceImpl implements CategoryService{
         return "redirect:/admin/category?update_success";
     }
 
+    //delete category method
     @Override
     public String deleteCategory(Long id) {
         CategoryEntity categoryEntity = categoryRepository.findById(id).get();

@@ -37,7 +37,9 @@
                                             <div>
                                                 <select class="form-control" th:field="${subCategory.category}">
                                                     <option value="">Select</option>
-                                                    <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                                                    <option th:each="category : ${categories}"
+                                                            th:value="${category.id}" th:text="${category.name}"
+                                                            th:selected="${category.id}"></option>
                                                 </select>
                                                 <p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger" th:errors="${subCategory.category}"></p>
                                             </div>
