@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/front-end/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details | Rokomari - Best Online Book Shop in Bangladesh</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <section class="pt-3 pb-5">
+            <div class="container px-5">
+                <div class="row">
+                    <!-- product info card start -->
+                    <div class="card product-info-card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-start">
+                                <div class="col-lg-4">
+                                    <div class="product-img text-center">
+                                        <img class="img-fluid" th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="product-img">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mt-5 mt-lg-0">
+                                    <div class="product-info">
+                                        <h5>আগুনডানা মেয়ে <span>(হার্ডকভার)</span></h5>
+                                        <span>
+                                                by
+                                                <a href="">
+                                                    সাদাত হোসাইন
+                                                </a>
+                                            </span>
+                                        <div class="category">
+                                            <span>Category:<a href="">সমকালীন উপন্যাস</a></span>
+                                        </div>
+                                        <div class="ratings">
+                                                <span>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                    <i class="bi bi-star"></i>
+                                                </span>
+                                            <span class="reviews">
+                                                    <span>14 ratings</span>
+                                                    <span class="divider"></span>
+                                                    <span>9 reviews</span>
+                                                </span>
+                                        </div>
+                                        <div class="product-details-price">
+                                            <span><del>TK. 800</del></span>
+                                            <span class="price">TK. 688</span>
+                                            <span>You Save TK. 112 (14%)</span>
+                                        </div>
+                                        <div class="product-stock">
+                                            <span><i class="bi bi-check-circle-fill"></i>In Stock (46 copies available)</span>
+                                        </div>
+                                        <div class="app-offer">
+                                            <span><i class="bi bi-file-bar-graph"></i> Extra 3% OFF in App Order</span>
+                                        </div>
+                                        <div class="book-length">
+                                            <div class="d-flex flex-column align-items-center">
+                                                <h6>Book Length</h6>
+                                                <i class="bi bi-book-half"></i>
+                                                <span>304 pages</span>
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center">
+                                                <h6>Edition</h6>
+                                                <i class="bi bi-file"></i>
+                                                <span>1st Published</span>
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center">
+                                                <h6>Publication</h6>
+                                                <i class="bi bi-book-fill"></i>
+                                                <span class="published-name">অন্যপ্রকাশ</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-btn">
+                                            <div class="d-flex flex-column flex-sm-row align-items-center gap-3">
+                                                <a class="btn-pore-dekun">একটু পড়ে দেখুন</a>
+                                                <a href="" class="btn-add-to-cart"><i class="bi bi-cart"></i>Add To Cart</a>
+                                            </div>
+                                            <div class="d-flex flex-column flex-sm-row align-items-center gap-3 gap-sm-5 mt-3">
+                                                <a href="" class="btn-add-to-wishlist"><i class="bi bi-heart"></i>Add To Wishlist</a>
+                                                <a href="" class="btn-share"><i class="bi bi-share"></i>Share this Product</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 mt-5 mt-lg-0">
+                                    <div class="related-product">
+                                        <h6>Related Products</h6>
+                                        <div class="rel-products">
+                                            <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="product-img">
+                                            <div>
+                                                <h6>আগুনডানা মেয়ে</h6>
+                                                <span>সাদাত হোসাইন</span>
+                                                <div class="related-pro-ratings">
+                                                    <div>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-half"></i>
+                                                        <i class="bi bi-star"></i>
+                                                    </div>
+                                                    <span>(9)</span>
+                                                </div>
+
+                                                <div class="related-pro-price">
+                                                    <span><del>TK. 800</del></span>
+                                                    <span>TK. 688</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="divider" />
+                                        <div class="rel-products">
+                                            <img th:src="@{/front-end/images/product/imam.jfif}" alt="product-img">
+                                            <div>
+                                                <h6>ইমাম</h6>
+                                                <span>সাদাত হোসাইন</span>
+                                                <div class="related-pro-ratings">
+                                                    <div>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-half"></i>
+                                                        <i class="bi bi-star"></i>
+                                                    </div>
+                                                    <span>(9)</span>
+                                                </div>
+
+                                                <div class="related-pro-price">
+                                                    <span><del>TK. 800</del></span>
+                                                    <span>TK. 688</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="divider" />
+                                        <div class="rel-products">
+                                            <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="product-img">
+                                            <div>
+                                                <h6>স্মার্ট মার্কেটিং</h6>
+                                                <span>সাদাত হোসাইন</span>
+                                                <div class="related-pro-ratings">
+                                                    <div>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <i class="bi bi-star-half"></i>
+                                                        <i class="bi bi-star"></i>
+                                                    </div>
+                                                    <span>(9)</span>
+                                                </div>
+
+                                                <div class="related-pro-price">
+                                                    <span><del>TK. 800</del></span>
+                                                    <span>TK. 688</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="divider" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- product info card end -->
+
+                    <!-- product specification card start -->
+                    <div class="card specification-card mt-4">
+                        <div class="card-body">
+                            <div>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary-tab-pane" type="button" role="tab" aria-controls="summary-tab-pane" aria-selected="true">Summary</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="specification-tab" data-bs-toggle="tab" data-bs-target="#specification-tab-pane" type="button" role="tab" aria-controls="specification-tab-pane" aria-selected="false">Specification</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="author-tab" data-bs-toggle="tab" data-bs-target="#author-tab-pane" type="button" role="tab" aria-controls="author-tab-pane" aria-selected="false">Author</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="summary-tab-pane" role="tabpanel" aria-labelledby="summary-tab" tabindex="0">
+                                        <div class="summary">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error magnam molestias minus aspernatur, ea autem excepturi, quae repellendus voluptas ex reprehenderit eveniet fugiat sed eum nemo at quas repudiandae magni.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="specification-tab-pane" role="tabpanel" aria-labelledby="specification-tab" tabindex="0">
+                                        <div class="specification">
+                                            <table class="table table-bordered table-responsive">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>আগুনডানা মেয়ে</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Author</td>
+                                                    <td><a href="">সাদাত হোসাইন</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Publisher</td>
+                                                    <td><a href="">অন্যপ্রকাশ</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Edition</td>
+                                                    <td>1st Published, 2024</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of Pages</td>
+                                                    <td>304</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Country</td>
+                                                    <td>বাংলাদেশ</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Language</td>
+                                                    <td>বাংলা</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="author-tab-pane" role="tabpanel" aria-labelledby="author-tab" tabindex="0">
+                                        <div class="author">
+                                            <div class="author-info">
+                                                <div class="author-img">
+                                                    <img th:src="@{/front-end/images/author/sadat_hossain.jpg}" alt="author">
+                                                </div>
+                                                <span class="d-flex gap-1">2.1K <p>followers</p></span>
+                                                <a href="" class="btn-follow">Follow</a>
+                                            </div>
+                                            <div class="author-details">
+                                                <h6>সাদাত হোসাইন</h6>
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam corporis, quia rerum quam suscipit officia animi. Excepturi expedita voluptatibus modi. Non ipsum reiciendis iusto modi dolores, veritatis unde quas accusantium.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- product specification card end -->
+
+                    <!-- product ratings card start -->
+                    <div class="card review-card mt-4">
+                        <div class="card-header">
+                            <h6>Reviews & Ratings</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="review-ratings d-flex flex-column flex-lg-row">
+                                <div class="col-md-7 d-flex flex-column flex-sm-row justify-content-center justify-content-sm-start align-items-center gap-4 gap-sm-5">
+                                    <div class="text-center text-sm-start">
+                                        <h5>3.7</h5>
+                                        <div class="avg-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                        <span>14 Ratings and 9 Reviews</span>
+                                    </div>
+                                    <div class="rating-graph">
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <span>(12)</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(1)</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(1)</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(1)</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <span>(4)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="review">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="review" class="form-label">Review</label>
+                                                <textarea class="form-control" id="review"></textarea>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="rating" class="form-label">Rating</label>
+                                                <select class="form-control" id="rating">
+                                                    <option value="#">Select</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+
+                                            <button type="submit" class="btn-review">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- product ratings card end -->
+                </div>
+            </div>
+        </section>
+
+        <!-- related products carousel start -->
+        <section class="pb-5">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="product-content">
+                        <h4>Related Products</h4>
+                        <a href="">All Views</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="carousel-wrapper">
+                            <div class="arrow" id="left">
+                                <i class="bi bi-chevron-left"></i>
+                            </div>
+                            <ul class="product-carousel">
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>আগুনডানা মেয়ে</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>স্মার্ট মার্কেটিং</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/imam.jfif}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>ইমাম</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>আগুনডানা মেয়ে</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>স্মার্ট মার্কেটিং</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/imam.jfif}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>ইমাম</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="arrow" id="right">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- related products carousel end -->
+    </div>
+</body>
+</html>

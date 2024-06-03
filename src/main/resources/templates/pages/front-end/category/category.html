@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/front-end/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Category & Sub Category | Rokomari - Best Online Book Shop in Bangladesh</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- category section start -->
+        <section class="py-5">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- price, name, newest sorting start-->
+                        <div class="card sorting-card mb-3">
+                            <div class="card-header">
+                                <h5 class="card-title float-start">Sort</h5>
+                                <a href="" class="float-end">Reset Sort</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check mt-2 mb-2">
+                                    <input type="radio" class="form-check-input" name="sort" id="best-seller" />
+                                    <label for="best-seller">Best Seller</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" name="sort" id="new-released" />
+                                    <label for="new-released">New Released</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" name="sort" id="low-to-high" />
+                                    <label for="low-to-high">Price - Low to High</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" name="sort" id="high-to-low" />
+                                    <label for="high-to-low">Price - High to Low</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" name="sort" id="a-z" />
+                                    <label for="a-z">Name - A to Z</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" name="sort" id="z-a" />
+                                    <label for="z-a">Name - Z to A</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- price, name, newest sorting end-->
+
+                        <!-- in stock sorting start-->
+                        <div class="card sorting-card mb-3">
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="sort" id="in-stock" />
+                                    <label for="in-stock">In Stock</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- in stock sorting end-->
+
+                        <!-- filter start-->
+                        <div class="card sorting-card mb-2">
+                            <div class="card-header">
+                                <h5 class="card-title float-start">Filter</h5>
+                                <a href="" class="float-end">Reset Filter</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4 border-bottom">
+                                    <h6>Brand</h6>
+                                    <div class="form-check mt-2 mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" id="samsung" />
+                                        <label for="samsung">Samsung</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" id="amazfit" />
+                                        <label for="amazfit">Amazfit</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" id="apple" />
+                                        <label for="apple">Apple</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 border-bottom">
+                                    <h6>Color</h6>
+                                    <div class="form-check mt-2 mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" id="black" />
+                                        <label for="black">Black</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" id="silver" />
+                                        <label for="silver">Silver</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" id="orange" />
+                                        <label for="orange">Orange</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 border-bottom">
+                                    <h6>Price</h6>
+                                    <div class="price-input">
+                                        <div class="field">
+                                            <span>Min</span>
+                                            <input type="number" class="input-min" value="0">
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div class="field">
+                                            <span>Max</span>
+                                            <input type="number" class="input-max" value="10000">
+                                        </div>
+                                    </div>
+                                    <div class="slider">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="range-input">
+                                        <input type="range" class="range-min" min="0" max="10000" value="0" step="100">
+                                        <input type="range" class="range-max" min="0" max="10000" value="10000" step="100">
+                                    </div>
+                                </div>
+
+                                <div class="mb-2">
+                                    <h6>Ratings</h6>
+                                    <div class="form-check mt-2 mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" />
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" />
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" />
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" />
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" name="sort" />
+                                        <div>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- filter end-->
+                    </div>
+                    <div class="col-md-9">
+                        <div>
+                            <ul>
+                                <li><a href="">Home</a></li>
+                                <li>Electronics</li>
+                                <li>Smart Watch</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Smart Watch</h4>
+                            <span>(Showing 1 to 60 of 154 products)</span>
+                        </div>
+                        <div class="col-lg-4">
+
+                        </div>
+                        <div class="col-lg-4">
+
+                        </div>
+                        <div class="col-lg-4">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- category section end -->
+
+        <!-- related products carousel start -->
+        <section class="pb-5">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="product-content">
+                        <h4>Related Products</h4>
+                        <a href="">All Views</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="carousel-wrapper">
+                            <div class="arrow" id="left">
+                                <i class="bi bi-chevron-left"></i>
+                            </div>
+                            <ul class="product-carousel">
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>আগুনডানা মেয়ে</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>স্মার্ট মার্কেটিং</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/imam.jfif}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>ইমাম</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>আগুনডানা মেয়ে</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>স্মার্ট মার্কেটিং</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                                <li class="product-card">
+                                    <div class="product-img">
+                                        <img th:src="@{/front-end/images/product/imam.jfif}" alt="product-img" draggable="false">
+                                    </div>
+                                    <div class="product-title">
+                                        <h2>ইমাম</h2>
+                                        <h4>সাদাত হোসাইন</h4>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                    <div class="product-price">
+                                                <span>
+                                                    <p><del>Tk. 800</del></p>
+                                                    Tk. 688
+                                                </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="arrow" id="right">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- related products carousel end -->
+    </div>
+</body>
+</html>

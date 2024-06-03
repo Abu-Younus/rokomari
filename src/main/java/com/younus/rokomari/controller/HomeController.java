@@ -11,4 +11,16 @@ public class HomeController {
     public String home() {
         return "pages/front-end/home";
     }
+
+    //category page show api
+    @GetMapping("/category")
+    public String category() {
+        return "pages/front-end/category/category";
+    }
+
+    //product details show api
+    @GetMapping("/product-details")
+    public String productDetails() {
+        return "pages/front-end/product/details";
+    }
 }
