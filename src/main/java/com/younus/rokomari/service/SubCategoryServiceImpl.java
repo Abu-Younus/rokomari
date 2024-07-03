@@ -4,6 +4,7 @@ import com.younus.rokomari.domain.CategoryDto;
 import com.younus.rokomari.domain.SubCategoryDto;
 import com.younus.rokomari.entity.CategoryEntity;
 import com.younus.rokomari.entity.SubCategoryEntity;
+import com.younus.rokomari.entity.UserEntity;
 import com.younus.rokomari.repository.CategoryRepository;
 import com.younus.rokomari.repository.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,6 +35,9 @@ public class SubCategoryServiceImpl implements SubCategoryService{
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private UserService userService;
 
     //pagination & sorting method
     @Override
@@ -72,6 +78,17 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         subCategoryEntity.setName(subCategoryDto.getName());
         subCategoryEntity.setImage(imageName);
         subCategoryEntity.setCreatedAt(new Date());
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        UserEntity user = userService.findByUserName(username);
+        subCategoryEntity.setCreatedBy(user);
 
         subCategoryRepository.save(subCategoryEntity);
 
@@ -136,6 +153,17 @@ public class SubCategoryServiceImpl implements SubCategoryService{
             subCategoryEntity.setCategory(subCategoryDto.getCategory());
             subCategoryEntity.setName(subCategoryDto.getName());
             subCategoryEntity.setUpdatedAt(new Date());
+
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String username;
+            if (principal instanceof UserDetails) {
+                username = ((UserDetails) principal).getUsername();
+            } else {
+                username = principal.toString();
+            }
+
+            UserEntity user = userService.findByUserName(username);
+            subCategoryEntity.setUpdatedBy(user);
 
             subCategoryRepository.save(subCategoryEntity);
         }

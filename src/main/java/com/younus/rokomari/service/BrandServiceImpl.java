@@ -2,12 +2,15 @@ package com.younus.rokomari.service;
 
 import com.younus.rokomari.domain.BrandDto;
 import com.younus.rokomari.entity.BrandEntity;
+import com.younus.rokomari.entity.UserEntity;
 import com.younus.rokomari.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +28,9 @@ import java.util.Date;
 public class BrandServiceImpl implements BrandService{
     @Autowired
     private BrandRepository brandRepository;
+
+    @Autowired
+    private UserService userService;
 
     //create brand method
     @Override
@@ -56,6 +62,17 @@ public class BrandServiceImpl implements BrandService{
         brandEntity.setName(brandDto.getName());
         brandEntity.setImage(imageName);
         brandEntity.setCreatedAt(new Date());
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        UserEntity user = userService.findByUserName(username);
+        brandEntity.setCreatedBy(user);
 
         brandRepository.save(brandEntity);
 
@@ -126,6 +143,17 @@ public class BrandServiceImpl implements BrandService{
 
             brandEntity.setName(brandDto.getName());
             brandEntity.setUpdatedAt(new Date());
+
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String username;
+            if (principal instanceof UserDetails) {
+                username = ((UserDetails) principal).getUsername();
+            } else {
+                username = principal.toString();
+            }
+
+            UserEntity user = userService.findByUserName(username);
+            brandEntity.setUpdatedBy(user);
 
             brandRepository.save(brandEntity);
         }

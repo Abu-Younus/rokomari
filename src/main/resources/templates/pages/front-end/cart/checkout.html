@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/front-end/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | Rokomari - Best Online Book Shop in Bangladesh</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- checkout section start -->
+        <section class="py-4">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="checkout">
+                        <div class="col-75">
+                            <form action="">
+                                <div class="row d-flex flex-column flex-lg-row">
+                                    <div class="col-50">
+                                        <h5>Billing Address</h5>
+                                        <label for="fname">Full Name</label>
+                                        <input type="text" id="fname" name="firstname">
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" name="email">
+                                        <label for="adr">Address</label>
+                                        <input type="text" id="adr" name="address">
+                                        <label for="city">City</label>
+                                        <input type="text" id="city" name="city">
+
+                                        <div class="row">
+                                            <div class="col-50">
+                                                <label for="state">State</label>
+                                                <input type="text" id="state" name="state">
+                                            </div>
+                                            <div class="col-50">
+                                                <label for="zip">Zip</label>
+                                                <input type="text" id="zip" name="zip">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-50">
+                                        <h5>Payment</h5>
+                                        <div class="icon-container">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input fs-6" name="payment-type" />
+                                                <label>Cash</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input fs-6" name="payment-type" />
+                                                <label>Card</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input fs-6" name="payment-type" />
+                                                <label>SSL Commerze</label>
+                                            </div>
+                                        </div>
+
+                                        <label for="cname">Name on Card</label>
+                                        <input type="text" id="cname" name="cardname">
+                                        <label for="ccnum">Credit card number</label>
+                                        <input type="text" id="ccnum" name="cardnumber">
+                                        <label for="expmonth">Exp Month</label>
+                                        <input type="text" id="expmonth" name="expmonth">
+
+                                        <div class="row">
+                                            <div class="col-50">
+                                                <label for="expyear">Exp Year</label>
+                                                <input type="text" id="expyear" name="expyear">
+                                            </div>
+                                            <div class="col-50">
+                                                <label for="cvv">CVV</label>
+                                                <input type="text" id="cvv" name="cvv">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <label>
+                                    <input type="checkbox" name="shipping"> Shipping address same as billing
+                                </label>
+                                <input type="submit" value="Continue to checkout" class="btn">
+                            </form>
+                        </div>
+
+                        <div class="col-25">
+                            <h4>Cart
+                                <span class="price">
+                                      <i class="bi bi-cart-fill"></i>
+                                      <b>4</b>
+                                    </span>
+                            </h4>
+                            <div class="d-flex justify-content-between gap-2 mt-3">
+                                <a href="#" class="d-flex gap-2">
+                                    <div class="order-item-image">
+                                        <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="">
+                                    </div>
+                                    <div class="order-item-title">
+                                        <h6>আগুনডানা মেয়ে</h6>
+                                        <span>সাদাত হোসাইন</span>
+                                        <p>Qty: 1</p>
+                                    </div>
+                                </a>
+                                <span class="price">৳575</span>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="#" class="d-flex gap-2">
+                                    <div class="order-item-image">
+                                        <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="">
+                                    </div>
+                                    <div class="order-item-title">
+                                        <h6>স্মার্ট মার্কেটিং</h6>
+                                        <span>সাদাত হোসাইন</span>
+                                        <p>Qty: 1</p>
+                                    </div>
+                                </a>
+                                <span class="price">৳475</span>
+                            </div>
+                            <hr>
+                            <p>Total <span class="price"><b>৳1050</b></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- checkout section end -->
+    </div>
+</body>
+</html>

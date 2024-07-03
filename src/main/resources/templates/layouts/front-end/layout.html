@@ -60,7 +60,7 @@
                                     class="d-flex align-items-center justify-content-lg-end gap-4">
                                 <a href="/login" class="fs-6 text-secondary d-flex align-items-center px-2 py-1 sign-in-btn"><i class="bi bi-person"></i>Sign in</a>
                                 <div class="divider me-2"></div>
-                                <a href="#"><i class="bi bi-cart cart-badge" value="3"></i></a>
+                                <a href="/cart"><i class="bi bi-cart cart-badge" value="3"></i></a>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                                     <a href="/login"><i
                                             class="bi bi-person"></i></a>
                                 </div>
-                                <a href="#"><i class="bi bi-cart cart-badge"
+                                <a href="/cart"><i class="bi bi-cart cart-badge"
                                                value="3"></i></a>
                             </div>
                             <div class="collapse navbar-collapse"
@@ -322,5 +322,45 @@
         <!-- script js -->
         <script th:src="@{/front-end/js/script.js}"></script>
         <script th:src="@{/front-end/js/bootstrap.bundle.js}"></script>
+
+        <!-- jquery link -->
+        <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            $('.minus-btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $input = $this.closest('div').find('input');
+                var value = parseInt($input.val());
+
+                if (value > 1) {
+                    value = value - 1;
+                } else {
+                    value = 0;
+                }
+
+                $input.val(value);
+
+            });
+
+            $('.plus-btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $input = $this.closest('div').find('input');
+                var value = parseInt($input.val());
+
+                if (value < 100) {
+                    value = value + 1;
+                } else {
+                    value =100;
+                }
+
+                $input.val(value);
+            });
+
+            $('.like-btn').on('click', function() {
+                $(this).toggleClass('is-active');
+            });
+        </script>
     </body>
 </html>

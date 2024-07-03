@@ -23,4 +23,16 @@ public class HomeController {
     public String productDetails() {
         return "pages/front-end/product/details";
     }
+
+    //cart page api
+    @GetMapping("/cart")
+    public String cart() {
+        return "pages/front-end/cart/cart";
+    }
+
+    //checkout page api
+    @GetMapping("/checkout")
+    public String checkout() {
+        return "pages/front-end/cart/checkout";
+    }
 }

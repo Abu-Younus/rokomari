@@ -3,12 +3,15 @@ package com.younus.rokomari.service;
 import com.younus.rokomari.domain.AuthorDto;
 import com.younus.rokomari.entity.AuthorEntity;
 import com.younus.rokomari.entity.CategoryEntity;
+import com.younus.rokomari.entity.UserEntity;
 import com.younus.rokomari.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +30,9 @@ import java.util.List;
 public class AuthorServiceImpl implements AuthorService{
     @Autowired
     private AuthorRepository authorRepository;
+
+    @Autowired
+    private UserService userService;
 
     //create author method
     @Override
@@ -65,6 +71,17 @@ public class AuthorServiceImpl implements AuthorService{
         authorEntity.setImage(imageName);
         authorEntity.setFollowers(0);
         authorEntity.setCreatedAt(new Date());
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        UserEntity user = userService.findByUserName(username);
+        authorEntity.setCreatedBy(user);
 
         authorRepository.save(authorEntity);
 
@@ -144,6 +161,17 @@ public class AuthorServiceImpl implements AuthorService{
             authorEntity.setName(authorDto.getName());
             authorEntity.setDetails(authorDto.getDetails());
             authorEntity.setUpdatedAt(new Date());
+
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String username;
+            if (principal instanceof UserDetails) {
+                username = ((UserDetails) principal).getUsername();
+            } else {
+                username = principal.toString();
+            }
+
+            UserEntity user = userService.findByUserName(username);
+            authorEntity.setUpdatedBy(user);
 
             authorRepository.save(authorEntity);
         }

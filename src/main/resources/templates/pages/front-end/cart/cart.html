@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/front-end/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart | Rokomari - Best Online Book Shop in Bangladesh</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <!-- cart section start -->
+        <section class="py-3">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <div class="shopping-cart card">
+                            <!-- Title -->
+                            <div class="title card-header">
+                                Cart Product
+                            </div>
+
+                            <div class="card-body">
+                                <div class="item d-flex flex-column justify-content-center justify-content-lg-start align-items-center align-items-lg-start flex-lg-row">
+                                    <div class="d-flex flex-column flex-md-row justify-content-center">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <div class="buttons">
+                                                <span class="delete-btn"></span>
+                                                <span class="like-btn"></span>
+                                            </div>
+
+                                            <div class="image">
+                                                <img th:src="@{/front-end/images/product/Agundana_Meye.jpg}" alt="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="description">
+                                            <span>আগুনডানা মেয়ে</span>
+                                            <span>সাদাত হোসাইন</span>
+                                            <span>White</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="quantity">
+                                            <button class="plus-btn" type="button" name="button">
+                                                <img th:src="@{/front-end/images/cart/plus.svg}" alt="" />
+                                            </button>
+                                            <input type="text" name="name" value="1">
+                                            <button class="minus-btn" type="button" name="button">
+                                                <img th:src="@{/front-end/images/cart/minus.svg}" alt="" />
+                                            </button>
+                                        </div>
+
+                                        <div class="total-price">TK. 549</div>
+                                    </div>
+                                </div>
+
+                                <div class="item d-flex flex-column justify-content-center justify-content-lg-start align-items-center align-items-lg-start flex-lg-row">
+                                    <div class="d-flex flex-column flex-md-row justify-content-center">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <div class="buttons">
+                                                <span class="delete-btn"></span>
+                                                <span class="like-btn"></span>
+                                            </div>
+
+                                            <div class="image">
+                                                <img th:src="@{/front-end/images/product/Smart_Marketing.jpg}" alt="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="description">
+                                            <span>আগুনডানা মেয়ে</span>
+                                            <span>সাদাত হোসাইন</span>
+                                            <span>White</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <div class="quantity">
+                                            <button class="plus-btn" type="button" name="button">
+                                                <img th:src="@{/front-end/images/cart/plus.svg}" alt="" />
+                                            </button>
+                                            <input type="text" name="name" value="1">
+                                            <button class="minus-btn" type="button" name="button">
+                                                <img th:src="@{/front-end/images/cart/minus.svg}" alt="" />
+                                            </button>
+                                        </div>
+
+                                        <div class="total-price">TK. 349</div>
+                                    </div>
+                                </div>
+
+                                <div class="cart-divider"></div>
+
+                                <div class="cart-total d-flex flex-column gap-2">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h5>Subtotal:</h5>
+                                        <h6>TK. 898</h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h5>Vat(5%):</h5>
+                                        <h6>TK. 78</h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h5>Shipping:</h5>
+                                        <h6>TK. 50</h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h5>Total:</h5>
+                                        <h6>TK. 1026</h6>
+                                    </div>
+                                </div>
+                                <div class="cart-checkout d-flex flex-column flex-sm-row text-center justify-content-end gap-2">
+                                    <a href="/">Continue Shopping</a>
+                                    <a href="/checkout">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- cart section end -->
+    </div>
+
+</body>
+</html>

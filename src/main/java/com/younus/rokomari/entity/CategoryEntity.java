@@ -25,6 +25,17 @@ public class CategoryEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval = true)
     private List<SubCategoryEntity> subCategories = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval = true)
+    private List<ProductEntity> products = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "created_by")
+    private UserEntity createdBy;
+
+    @ManyToOne
+    @JoinColumn(name = "updated_by")
+    private UserEntity updatedBy;
+
     private Date createdAt;
     private Date updatedAt;
 }

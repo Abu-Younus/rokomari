@@ -1,9 +1,10 @@
 package com.younus.rokomari.service;
 
 import com.younus.rokomari.domain.UserDto;
+import com.younus.rokomari.entity.ProfileEntity;
 import com.younus.rokomari.entity.RoleEntity;
 import com.younus.rokomari.entity.UserEntity;
-import com.younus.rokomari.repository.RoleRepository;
+import com.younus.rokomari.repository.ProfileRepository;
 import com.younus.rokomari.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Autowired
-    private RoleRepository roleRepository;
+    private ProfileRepository profileRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -41,6 +42,8 @@ public class UserServiceImpl implements UserService{
             return "pages/auth/register";
         }
 
+        ProfileEntity profile = new ProfileEntity();
+
         UserEntity userEntity = new UserEntity();
         userEntity.setFullName(userDto.getFullName());
         userEntity.setEmail(userDto.getEmail());
@@ -49,7 +52,16 @@ public class UserServiceImpl implements UserService{
 
         userRepository.save(userEntity);
 
+        profile.setUser(userEntity);
+
+        profileRepository.save(profile);
+
         return "redirect:/register?success";
+    }
+
+    @Override
+    public UserEntity findByUserName(String username) {
+        return userRepository.findByEmail(username);
     }
 
     @Override
