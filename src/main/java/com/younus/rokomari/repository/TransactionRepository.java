@@ -1,8 +1,9 @@
 package com.younus.rokomari.repository;
 
+import com.younus.rokomari.entity.TransactionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TransactionEntity extends JpaRepository<TransactionEntity,Long> {
+public interface TransactionRepository extends JpaRepository<TransactionEntity,Long> {
 }
